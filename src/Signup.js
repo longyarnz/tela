@@ -10,12 +10,12 @@ const SignUp = props => {
     }
 
     return (
-        <SafeAreaView style={styles.container}>
-            <KeyboardAvoidingView behavior="padding" style={styles.scroll}>
+        <SafeAreaView style={styles.safeArea}>
+            <KeyboardAvoidingView behavior="height" style={styles.container}>
                 <View style={styles.caption}>
                     <AppText style={styles.captionText}>
-                        Create Your Tela Account
-                </AppText>
+                        Create Your Account
+                    </AppText>
                 </View>
 
                 <View style={styles.form}>
@@ -32,7 +32,7 @@ const SignUp = props => {
                     />
 
                     <TextInput
-                        style={styles.formInput}
+                        style={[styles.formInput, styles.lastFormInput]}
                         clearButtonMode="while-editing"
                         placeholder="Phone Number" maxLength={11} keyboardType="phone-pad"
                     />

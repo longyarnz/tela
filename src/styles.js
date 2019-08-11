@@ -3,31 +3,31 @@ import { StyleSheet } from 'react-native';
 export const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#fff',
-        justifyContent: 'flex-start',
+        backgroundColor: '#dedede',
         paddingHorizontal: 20,
+        paddingTop: 120,
+        justifyContent: 'space-around',
     },
-    scroll: {
+    safeArea: {
         flex: 1,
     },
     caption: {
-        flex: 1,
-        justifyContent: 'flex-end',
+        justifyContent: 'center',
         alignItems: 'center',
         paddingBottom: 40,
         minHeight: 100
     },
     captionText: {
-        fontSize: 30,
+        fontSize: 38,
         textAlign: 'center',
-        fontFamily: 'Montserrat-Bold',
+        fontFamily: 'Montserrat-Light',
     },
     form: {
-        flex: 2,
-        paddingVertical: 40,
-        justifyContent: 'flex-start',
+        paddingVertical: 30,
+        justifyContent: 'center',
         backgroundColor: '#fff',
-        minHeight: 200
+        minHeight: 200,
+        paddingHorizontal: 20
     },
     formInput: {
         paddingVertical: 5,
@@ -35,10 +35,13 @@ export const styles = StyleSheet.create({
         borderBottomColor: '#ccc',
         fontFamily: 'Montserrat-Light',
         fontSize: 16,
-        marginBottom: 20
+        marginBottom: 25
+    },
+    lastFormInput: {
+        marginBottom: 0
     },
     nextButtonView: {
-        paddingHorizontal: 20,
+        paddingHorizontal: 30,
         backgroundColor: '#111',
         justifyContent: 'center',
         alignItems: 'center',

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { View, TextInput, TouchableOpacity, SafeAreaView, KeyboardAvoidingView, Keyboard, StyleSheet } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import AppText from './components/AppText';
+import ShouldRender from './utils/ShouldRender';
 import { styles } from './styles';
 
 const localStyles = StyleSheet.create({
@@ -19,8 +20,8 @@ const Login = props => {
     const switchToPhone = () => setToggle(!toggle);
 
     return (
-        <SafeAreaView style={styles.container} onPress={() => Keyboard.dismiss()}>
-            <KeyboardAvoidingView behavior="padding" style={styles.scroll}>
+        <SafeAreaView style={styles.safeArea} onPress={() => Keyboard.dismiss()}>
+            <KeyboardAvoidingView behavior="height" style={styles.container}>
                 <View style={styles.caption}>
                     <AppText style={styles.captionText}>
                         Welcome Back To Tela
@@ -31,26 +32,43 @@ const Login = props => {
                     <TextInput
                         style={styles.formInput}
                         clearButtonMode="while-editing"
+                        placeholder="Full Name"
+                    />
+
+                    <TextInput
+                        style={[styles.formInput, styles.lastFormInput]}
+                        clearButtonMode="while-editing"
                         placeholder={placeholder}
                         keyboardType={keyboardType}
                     />
-                    <View style={localStyles.switch}>
-                        <AppText style={styles.greyText}>
-                            OR Login with your &nbsp;
-                        </AppText>
 
-                        <TouchableOpacity onPress={switchToPhone}>
-                            <AppText style={[styles.blackText, styles.boldText]} accessiilityRole="button">
-                                { label }.
+                    <ShouldRender if={false}>
+                        <View style={localStyles.switch}>
+                            <AppText style={styles.greyText}>
+                                OR Login with your &nbsp;
                             </AppText>
-                        </TouchableOpacity>
-                    </View>
+
+                            <TouchableOpacity onPress={switchToPhone}>
+                                <AppText style={[styles.blackText, styles.boldText]} accessiilityRole="button">
+                                    {label}.
+                                </AppText>
+                            </TouchableOpacity>
+                        </View>
+                    </ShouldRender>
                 </View>
 
                 <View style={styles.nextButtonView}>
                     <TouchableOpacity style={styles.nextButtonTouch}>
-                        <AppText style={styles.nextButtonText}>Next</AppText>
+                        <AppText style={styles.nextButtonText}>Login</AppText>
                         <Icon name="ios-arrow-round-forward" color="#fff" size={36} />
+                    </TouchableOpacity>
+                </View>
+
+                <View style={styles.loginButton}>
+                    <TouchableOpacity>
+                        <AppText style={[styles.loginSpanText, styles.greyText]}>
+                            Forgot Password
+                        </AppText>
                     </TouchableOpacity>
                 </View>
 
